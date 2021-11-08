@@ -1,1 +1,5 @@
 /* Theme Name: Greyed Out */
+
+body {
+    background-color: rgb(150, 151, 151) !important;
+}

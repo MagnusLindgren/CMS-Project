@@ -1,5 +1,7 @@
-<?php get_header(); ?>
+<?php
+get_header(); ?>
 
+<h1><?php bloginfo('name'); ?></h1>
 
-
-<?php get_footer(); ?>
+<?php
+get_footer();
