@@ -1,5 +1,6 @@
 /* Theme Name: Greyed Out */
 
 body {
-    background-color: rgb(150, 151, 151) !important;
+    background: url(img/back1.jpg) !important;
+    background-size: 50%;
 }
