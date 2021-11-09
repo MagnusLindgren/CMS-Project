@@ -33,4 +33,4 @@
     </div>
 </nav>
 </header>
-<main role="main" class="container">
+<main role="main" class="container mt-3">

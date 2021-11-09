@@ -9,7 +9,7 @@ $contact_imageArray = get_field('contact_image');
 $contact_image = $contact_imageArray['sizes']['large'];
 ?>
 
-<div class="container">
+<div class="container m-3">
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
