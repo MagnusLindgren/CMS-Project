@@ -23,6 +23,14 @@ function register_navwalker(){
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
 
+function slug_provide_walker_instance( $args ) {
+    if ( isset( $args['walker'] ) && is_string( $args['walker'] ) && class_exists( $args['walker'] ) ) {
+        $args['walker'] = new $args['walker'];
+    }
+    return $args;
+}
+add_filter( 'wp_nav_menu_args', 'slug_provide_walker_instance', 1001 );
+
 function cptui_register_my_cpts_projects() {
 
 	/**
