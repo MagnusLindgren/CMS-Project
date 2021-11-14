@@ -29,6 +29,7 @@ function slug_provide_walker_instance( $args ) {
     }
     return $args;
 }
+
 add_filter( 'wp_nav_menu_args', 'slug_provide_walker_instance', 1001 );
 
 function cptui_register_my_cpts_projects() {
@@ -62,7 +63,8 @@ function cptui_register_my_cpts_projects() {
 		"hierarchical" => false,
 		"rewrite" => [ "slug" => "projects", "with_front" => true ],
 		"query_var" => true,
-		"supports" => [ "title", "editor", "thumbnail" ],
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "page-attributes", "post-formats" ],
+		"taxonomies" => [ "post_tag" ],
 		"show_in_graphql" => false,
 	];
 
@@ -70,3 +72,10 @@ function cptui_register_my_cpts_projects() {
 }
 
 add_action( 'init', 'cptui_register_my_cpts_projects' );
+
+function custom_conference_in_home_loop( $query ) {
+	if ( is_home() && $query->is_main_query() )
+	$query->set( 'post_type', array( 'post', 'Projects') );
+	return $query;
+	}
+	add_filter( 'pre_get_posts', 'custom_conference_in_home_loop' );
